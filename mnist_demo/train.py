@@ -1,8 +1,3 @@
-'''Trains a simple convnet on the MNIST dataset.
-Gets to 99.25% test accuracy after 12 epochs
-(there is still a lot of margin for parameter tuning).
-16 seconds per epoch on a GRID K520 GPU.
-'''
 import logging
 import keras
 import numpy as np
@@ -11,10 +6,9 @@ from keras.callbacks import CSVLogger
 import mnist_demo.models
 
 
-def train(x_train, y_train, x_test, y_test, model_path=None, logs_path=None):
+def train(x_train, y_train, x_test, y_test, epochs, model_path=None, logs_path=None):
     batch_size = 128
     num_classes = 10
-    epochs = 4
 
     # input image dimensions
     img_rows, img_cols = 28, 28
